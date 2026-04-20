@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyArc – Minimal Study Planner for Focused Students</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['system-ui', 'ui-sans-serif', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f3f6ff',
+              100: '#e2e7ff',
+              200: '#c4d0ff',
+              300: '#9baeff',
+              400: '#6b7fff',
+              500: '#4453ff',
+              600: '#2b34d9',
+              700: '#2329aa',
+              800: '#1f2588',
+              900: '#1d236f',
+            },
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(15,23,42,0.55)',
+          },
+          backgroundImage: {
+            'noise-soft': "radial-gradient(circle at 1px 1px, rgba(148,163,184,0.18) 1px, transparent 0)",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="min-h-full font-sans text-slate-100 antialiased">
+  <div class="relative min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
+    <div class="pointer-events-none fixed inset-0 opacity-70 mix-blend-screen" aria-hidden="true">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.12),transparent_55%),_radial-gradient(circle_at_10%_90%,_rgba(129,140,248,0.12),transparent_55%),_radial-gradient(circle_at_90%_15%,_rgba(236,72,153,0.18),transparent_55%)]"></div>
+    </div>
+
+    <div class="relative mx-auto flex min-h-screen max-w-6xl flex-col px-4 sm:px-6 lg:px-10">
+      <header class="z-20 flex items-center justify-between py-5 sm:py-7 lg:py-8">
+        <a href="#" class="flex items-center gap-2.5">
+          <div class="relative flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-900/80 shadow-soft ring-1 ring-slate-700/80">
+            <span class="absolute inset-px rounded-2xl bg-gradient-to-br from-brand-500 via-brand-400 to-sky-400 opacity-80 blur-sm"></span>
+            <span class="relative flex h-full w-full items-center justify-center rounded-2xl bg-slate-950/95 text-lg font-semibold tracking-tight text-slate-100">A</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-base font-semibold tracking-tight text-slate-50 sm:text-lg">StudyArc</span>
+            <span class="text-[10px] font-medium uppercase tracking-[0.22em] text-slate-400 sm:text-[11px]">Calm study planner</span>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+          <a href="#features" class="transition-colors hover:text-slate-50">Features</a>
+          <a href="#how-it-works" class="transition-colors hover:text-slate-50">How it works</a>
+          <a href="#pricing" class="transition-colors hover:text-slate-50">Pricing</a>
+          <a href="#faq" class="transition-colors hover:text-slate-50">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-3 sm:gap-4">
+          <button class="hidden rounded-full border border-slate-700/80 px-4 py-1.5 text-xs font-medium text-slate-200 shadow-sm transition hover:border-slate-500 hover:bg-slate-900/80 md:inline-flex">Sign in</button>
+          <a href="#pricing" class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-brand-500 via-brand-400 to-sky-400 px-4 py-1.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:brightness-110 sm:px-5 sm:py-2 sm:text-sm">
+            Get started
+            <span class="text-base">→</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="flex-1 pb-16 pt-2 sm:pt-4 lg:pt-6">
+        <section class="grid gap-10 border-b border-slate-800/80 pb-12 sm:gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center lg:gap-16 lg:pb-16" aria-labelledby="hero-heading">
+          <div class="space-y-7 sm:space-y-8">
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-2 py-1 text-[11px] font-medium text-slate-300 shadow-sm backdrop-blur">
+              <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-300">
+                New
+              </span>
+              <span>Smart reminders that adapt to your real schedule</span>
+            </div>
+
+            <div class="space-y-4 sm:space-y-5">
+              <h1 id="hero-heading" class="text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl">
+                A calm study planner that actually fits your day.
+              </h1>
+              <p class="max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                StudyArc turns your subjects, exams and notes into a clean, visual plan. No clutter, no guilt — just gentle reminders, flexible schedules and a quiet interface designed for deep focus.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <a href="#preview" class="inline-flex items-center justify-center rounded-full bg-slate-50 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-white sm:px-6">
+                Try the live planner
+              </a>
+              <button class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/70 px-4 py-2 text-xs font-medium text-slate-200 shadow-sm transition hover:border-slate-500 hover:bg-slate-900 sm:px-5 sm:text-sm">
+                Watch 90s overview
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-[11px]">▶</span>
+              </button>
+            </div>
+
+            <dl class="grid grid-cols-3 gap-4 pt-1 sm:max-w-md sm:gap-6">
+              <div class="space-y-1">
+                <dt class="text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">Students</dt>
+                <dd class="text-lg font-semibold text-slate-50 sm:text-xl">12k+</dd>
+              </div>
+              <div class="space-y-1">
+                <dt class="text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">Weekly hours saved</dt>
+                <dd class="text-lg font-semibold text-slate-50 sm:text-xl">4.3</dd>
+              </div>
+              <div class="space-y-1">
+                <dt class="text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">Platforms</dt>
+                <dd class="text-lg font-semibold text-slate-50 sm:text-xl">Web · iOS</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div id="preview" class="relative">
+            <div class="pointer-events-none absolute -inset-6 rounded-3xl bg-gradient-to-tr from-brand-500/25 via-sky-400/10 to-fuchsia-500/20 opacity-60 blur-2xl" aria-hidden="true"></div>
+            <div class="relative rounded-3xl border border-slate-700/70 bg-slate-950/80 p-3 shadow-soft backdrop-blur">
+              <div class="flex items-center justify-between rounded-2xl border border-slate-800/80 bg-slate-900/90 px-3 py-2 text-[11px] text-slate-300">
+                <div class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/90"></span>
+                  <span class="font-medium text-slate-100">Today · Tuesday</span>
+                </div>
+                <span class="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] font-medium text-slate-300">Focus window · 3h</span>
+              </div>
+
+              <div class="mt-3 grid gap-3 rounded-2xl border border-slate-800/80 bg-slate-950/90 p-3 sm:grid-cols-[1.1fr_minmax(0,1fr)] sm:gap-4 sm:p-4">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <p class="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">Study blocks</p>
+                    <button class="rounded-full border border-slate-700/80 bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-200">Auto-balance</button>
+                  </div>
+
+                  <div class="space-y-1.5 text-[11px] text-slate-200">
+                    <div class="group flex items-center justify-between rounded-xl border border-slate-700/80 bg-gradient-to-r from-slate-900 to-slate-900/60 px-2.5 py-2 transition hover:border-brand-400/80">
+                      <div class="flex items-center gap-2.5">
+                        <span class="h-6 w-6 rounded-full bg-sky-500/15 text-[10px] font-semibold text-sky-300 ring-1 ring-sky-400/40 flex items-center justify-center">M</span>
+                        <div>
+                          <p class="text-xs font-medium text-slate-50">Math · Problem set 5</p>
+                          <p class="text-[10px] text-slate-400">8:00 – 9:00 · Library desk</p>
+                        </div>
+                      </div>
+                      <span class="rounded-full bg-slate-800/80 px-2 py-0.5 text-[10px] text-emerald-300">On track</span>
+                    </div>
+
+                    <div class="group flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/80 px-2.5 py-2 transition hover:border-sky-400/70">
+                      <div class="flex items-center gap-2.5">
+                        <span class="h-6 w-6 rounded-full bg-purple-500/15 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-400/40 flex items-center justify-center">B</span>
+                        <div>
+                          <p class="text-xs font-medium text-slate-50">Biology · Flashcards</p>
+                          <p class="text-[10px] text-slate-400">9:15 – 9:45 · 2× 15m sprints</p>
+                        </div>
+                      </div>
+                      <span class="rounded-full bg-slate-800/80 px-2 py-0.5 text-[10px] text-amber-300">Due in 2h</span>
+                    </div>
+
+                    <div class="group flex items-center justify-between rounded-xl border border-dashed border-slate-700/70 bg-slate-900/60 px-2.5 py-2 text-slate-400 transition hover:border-slate-500 hover:text-slate-200">
+                      <div class="flex items-center gap-2.5">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-base text-slate-300">+</span>
+                        <p class="text-[11px] font-medium">Add a 25-minute focus block</p>
+                      </div>
+                      <span class="text-[10px]">⌘ + N</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-3 space-y-2.5 rounded-2xl border border-slate-800/80 bg-slate-950/80 p-2.5 sm:mt-0 sm:p-3">
+                  <div class="flex items-center justify-between text-[11px] text-slate-300">
+                    <p class="font-medium uppercase tracking-[0.16em] text-slate-400">Notes</p>
+                    <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] text-slate-300">Syncs with reminders</span>
+                  </div>
+
+                  <div class="space-y-1.5 text-[11px] text-slate-200">
+                    <div class="rounded-xl border border-slate-800/90 bg-slate-900/80 p-2">
+                      <div class="mb-1.5 flex items-center justify-between">
+                        <p class="text-[11px] font-medium text-slate-100">Exam: Calculus midterm</p>
+                        <span class="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] text-emerald-300">Plan ready</span>
+                      </div>
+                      <p class="text-[10px] leading-relaxed text-slate-400">3 days out · Focus on integration techniques · Add 1 review block tonight after 8pm.</p>
+                    </div>
+
+                    <div class="flex gap-1.5">
+                      <button class="flex-1 rounded-lg border border-slate-800 bg-slate-900/80 px-2 py-1 text-[10px] text-slate-300 transition hover:border-sky-400/70 hover:text-sky-200">Convert note → task</button>
+                      <button class="flex-1 rounded-lg border border-slate-800 bg-slate-900/80 px-2 py-1 text-[10px] text-slate-300 transition hover:border-brand-400/70 hover:text-brand-100">Set reminder</button>
+                    </div>
+
+                    <div class="mt-1 rounded-lg border border-dashed border-slate-700/80 bg-slate-900/60 px-2 py-1.5 text-[10px] text-slate-400">
+                      Jot a quick thought… <span class="text-slate-500">StudyArc will suggest where it fits.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 flex items-center justify-between rounded-2xl border border-slate-800/80 bg-slate-950/90 px-3 py-2 text-[10px] text-slate-300">
+                <div class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                  <span>Reminder · "Biology review" will move if your class runs late.</span>
+                </div>
+                <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] text-slate-400">Adaptive mode on</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="py-12 sm:py-16 lg:py-20">
+          <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-xl space-y-3">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-300">Built for real student life</p>
+              <h2 class="text-xl font-semibold tracking-tight text-slate-50 sm:text-2xl">Everything you need to plan, remember and adjust — without the chaos.</h2>
+              <p class="text-sm leading-relaxed text-slate-300">
+                StudyArc combines a visual planner, adaptive reminders and quick notes into a single calm workspace. Designed with university and high-school students who juggle classes, exams, part-time work and life.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-slate-400">
+              <span class="inline-flex h-6 items-center rounded-full border border-slate-700/80 bg-slate-900/80 px-3 font-medium text-slate-200">No ads · No dark patterns</span>
+              <span>Just focus.</span>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
+            <article class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-sky-400/80 hover:bg-slate-950 sm:p-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/15 text-sky-300 ring-1 ring-sky-400/40">⏰</div>
+                  <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-300">Adaptive</span>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-50">Smart, forgiving reminders</h3>
+                <p class="text-xs leading-relaxed text-slate-300">
+                  When your day shifts, StudyArc quietly reschedules reminders around your real classes and commitments instead of flooding you with red overdue alerts.
+                </p>
+              </div>
+              <ul class="mt-3 space-y-1.5 text-[11px] text-slate-300">
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Snooze by block, not by time.</li>
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Auto-shift tasks if a class runs late.</li>
+              </ul>
+            </article>
+
+            <article class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-emerald-400/80 hover:bg-slate-950 sm:p-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-400/40">🗂</div>
+                  <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-300">Subjects</span>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-50">Visual study planner</h3>
+                <p class="text-xs leading-relaxed text-slate-300">
+                  Organise by subject, exam or project. Drag blocks across your week and see at a glance where your time actually goes.
+                </p>
+              </div>
+              <ul class="mt-3 space-y-1.5 text-[11px] text-slate-300">
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-emerald-300">•</span> Color-coded subjects and exams.</li>
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-emerald-300">•</span> Weekly load and streak insights.</li>
+              </ul>
+            </article>
+
+            <article class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-fuchsia-400/80 hover:bg-slate-950 sm:p-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-fuchsia-500/15 text-fuchsia-300 ring-1 ring-fuchsia-400/40">📝</div>
+                  <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-300">Notes</span>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-50">Notes that stay connected</h3>
+                <p class="text-xs leading-relaxed text-slate-300">
+                  Turn any note into a study block or reminder in one tap. Your ideas stay attached to the subjects and exams they belong to.
+                </p>
+              </div>
+              <ul class="mt-3 space-y-1.5 text-[11px] text-slate-300">
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-fuchsia-300">•</span> Markdown-style quick formatting.</li>
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-fuchsia-300">•</span> Search by topic, tag or exam date.</li>
+              </ul>
+            </article>
+
+            <article class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-amber-400/80 hover:bg-slate-950 sm:p-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500/15 text-amber-300 ring-1 ring-amber-400/40">📆</div>
+                  <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-300">Calendar</span>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-50">Works with your timetable</h3>
+                <p class="text-xs leading-relaxed text-slate-300">
+                  Import your class schedule from Google Calendar or .ics files. StudyArc suggests realistic windows around your fixed commitments.
+                </p>
+              </div>
+              <ul class="mt-3 space-y-1.5 text-[11px] text-slate-300">
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-amber-300">•</span> One-way or two-way sync options.</li>
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-amber-300">•</span> Quiet hours for nights and weekends.</li>
+              </ul>
+            </article>
+
+            <article class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-lime-400/80 hover:bg-slate-950 sm:p-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-lime-500/15 text-lime-300 ring-1 ring-lime-400/40">📊</div>
+                  <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-300">Insights</span>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-50">Gentle progress analytics</h3>
+                <p class="text-xs leading-relaxed text-slate-300">
+                  See how consistently you study without turning your life into a competition. Weekly summaries highlight what worked.
+                </p>
+              </div>
+              <ul class="mt-3 space-y-1.5 text-[11px] text-slate-300">
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-lime-300">•</span> Time by subject and study type.</li>
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-lime-300">•</span> Streaks that can pause during exams.</li>
+              </ul>
+            </article>
+
+            <article class="group flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-rose-400/80 hover:bg-slate-950 sm:p-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-rose-500/15 text-rose-300 ring-1 ring-rose-400/40">🌙</div>
+                  <span class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-medium text-slate-300">Focus</span>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-50">Designed to feel quiet</h3>
+                <p class="text-xs leading-relaxed text-slate-300">
+                  A minimal, distraction-free interface that keeps you oriented without shouting. Dark by default and easy on tired eyes.
+                </p>
+              </div>
+              <ul class="mt-3 space-y-1.5 text-[11px] text-slate-300">
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-rose-300">•</span> Gentle animations, no flashing badges.</li>
+                <li class="flex items-start gap-1.5"><span class="mt-0.5 text-rose-300">•</span> Keyboard-first for power users.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="how-it-works" class="border-y border-slate-800/80 bg-slate-950/60 py-12 sm:py-16 lg:py-20">
+          <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
+            <div class="space-y-3">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-300">How it works</p>
+              <h2 class="text-xl font-semibold tracking-tight text-slate-50 sm:text-2xl">From messy syllabus to clear weekly plan in under 10 minutes.</h2>
+              <p class="text-sm leading-relaxed text-slate-300">
+                StudyArc guides you through a quick setup once, then quietly keeps your plan up to date as deadlines and classes shift.
+              </p>
+
+              <ol class="mt-5 space-y-4 text-sm text-slate-200">
+                <li class="flex gap-3">
+                  <span class="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-sky-500/15 text-[11px] font-semibold text-sky-300 ring-1 ring-sky-400/40">1</span>
+                  <div>
+                    <h3 class="text-sm font-semibold text-slate-50">Add your subjects & key dates</h3>
+                    <p class="mt-1 text-xs leading-relaxed text-slate-300">Enter subjects, exams, projects and recurring classes — or import them straight from your calendar.</p>
+                  </div>
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-sky-500/15 text-[11px] font-semibold text-sky-300 ring-1 ring-sky-400/40">2</span>
+                  <div>
+                    <h3 class="text-sm font-semibold text-slate-50">Pick your realistic weekly load</h3>
+                    <p class="mt-1 text-xs leading-relaxed text-slate-300">Tell StudyArc how many hours you can actually give each week. It spreads your study time without overbooking.</p>
+                  </div>
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-sky-500/15 text-[11px] font-semibold text-sky-300 ring-1 ring-sky-400/40">3</span>
+                  <div>
+                    <h3 class="text-sm font-semibold text-slate-50">Let adaptive reminders do the rest</h3>
+                    <p class="mt-1 text-xs leading-relaxed text-slate-300">As your week unfolds, StudyArc quietly adjusts reminders and suggests where new notes and tasks should live.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="relative">
+              <div class="pointer-events-none absolute -inset-6 rounded-3xl bg-gradient-to-tr from-sky-500/25 via-brand-500/10 to-fuchsia-500/25 opacity-70 blur-2xl" aria-hidden="true"></div>
+              <div class="relative space-y-3 rounded-3xl border border-slate-800/80 bg-slate-950/90 p-3 shadow-soft">
+                <div class="flex items-center justify-between rounded-2xl border border-slate-800/80 bg-slate-900/90 px-3 py-2 text-[11px] text-slate-300">
+                  <div class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    <span class="font-medium text-slate-100">Weekly overview</span>
+                  </div>
+                  <span class="rounded-full bg-slate-950 px-2 py-0.5 text-[10px] text-slate-400">You · 14h planned</span>
+                </div>
+
+                <div class="grid gap-3 rounded-2xl border border-slate-800/90 bg-slate-950/90 p-3 text-[11px] text-slate-200 sm:grid-cols-7 sm:p-4">
+                  <div class="space-y-2 sm:col-span-3">
+                    <p class="text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">Workload</p>
+                    <div class="space-y-1.5">
+                      <div class="flex items-center justify-between text-[10px] text-slate-300">
+                        <span>Math</span>
+                        <span class="text-slate-400">4.5h / wk</span>
+                      </div>
+                      <div class="flex h-1.5 overflow-hidden rounded-full bg-slate-900">
+                        <div class="w-3/5 bg-sky-400"></div>
+                        <div class="w-1/5 bg-sky-500/60"></div>
+                      </div>
+                      <div class="flex items-center justify-between text-[10px] text-slate-300">
+                        <span>Biology</span>
+                        <span class="text-slate-400">3h / wk</span>
+                      </div>
+                      <div class="flex h-1.5 overflow-hidden rounded-full bg-slate-900">
+                        <div class="w-2/5 bg-emerald-400"></div>
+                        <div class="w-1/5 bg-emerald-500/60"></div>
+                      </div>
+                      <div class="flex items-center justify-between text-[10px] text-slate-300">
+                        <span>History</span>
+                        <span class="text-slate-400">2h / wk</span>
+                      </div>
+                      <div class="flex h-1.5 overflow-hidden rounded-full bg-slate-900">
+                        <div class="w-1/3 bg-fuchsia-400"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-2 space-y-2 sm:col-span-4 sm:mt-0">
+                    <p class="text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">Week at a glance</p>
+                    <div class="grid grid-cols-4 gap-1.5 text-[9px] text-slate-400">
+                      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1.5">
+                      <div class="space-y-1 rounded-xl bg-slate-900/80 p-1.5">
+                        <div class="h-1 w-10 rounded-full bg-sky-400/80"></div>
+                        <p class="text-[9px] text-slate-300">2 × Math</p>
+                        <p class="text-[9px] text-slate-500">Light day</p>
+                      </div>
+                      <div class="space-y-1 rounded-xl bg-slate-900/80 p-1.5">
+                        <div class="h-1 w-10 rounded-full bg-emerald-400/80"></div>
+                        <p class="text-[9px] text-slate-300">Bio + notes</p>
+                        <p class="text-[9px] text-slate-500">Perfect for flashcards</p>
+                      </div>
+                      <div class="space-y-1 rounded-xl bg-slate-900/80 p-1.5">
+                        <div class="flex h-1 w-10 overflow-hidden rounded-full">
+                          <div class="w-1/2 bg-sky-400/80"></div>
+                          <div class="w-1/2 bg-fuchsia-400/80"></div>
+                        </div>
+                        <p class="text-[9px] text-slate-300">Math + History</p>
+                        <p class="text-[9px] text-amber-300">Exam in 3 days</p>
+                      </div>
+                      <div class="space-y-1 rounded-xl border border-dashed border-slate-800 bg-slate-900/40 p-1.5">
+                        <p class="text-[9px] text-slate-400">Unplanned space</p>
+                        <p class="text-[9px] text-slate-500">StudyArc will suggest blocks here.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between rounded-2xl border border-slate-800/80 bg-slate-950/90 px-3 py-2 text-[10px] text-slate-300">
+                  <div class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                    <span>"You’re on track for your calculus midterm. Consider adding a 25-minute review on Thursday."</span>
+                  </div>
+                  <button class="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] text-sky-200 hover:bg-slate-800">Add block</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" class="py-12 sm:py-16 lg:py-20">
+          <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-xl space-y-3">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-300">Simple pricing</p>
+              <h2 class="text-xl font-semibold tracking-tight text-slate-50 sm:text-2xl">Start free. Upgrade only when your semester gets serious.</h2>
+              <p class="text-sm leading-relaxed text-slate-300">
+                No trials that suddenly end during midterms. Keep using the free plan as long as it works for you.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-slate-400">
+              <span class="inline-flex h-6 items-center rounded-full border border-slate-700/80 bg-slate-950/90 px-3 font-medium text-slate-200">Student discount · 40% off with .edu</span>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch">
+            <div class="flex flex-col justify-between rounded-3xl border border-slate-800/80 bg-slate-950/80 p-5 shadow-soft sm:p-6">
+              <div class="space-y-3">
+                <h3 class="text-sm font-semibold text-slate-50">Free</h3>
+                <p class="text-xs leading-relaxed text-slate-300">Perfect for a single semester or testing StudyArc on a lighter workload.</p>
+                <p class="flex items-baseline gap-1 text-2xl font-semibold text-slate-50">
+                  $0
+                  <span class="text-xs font-medium text-slate-400">forever</span>
+                </p>
+                <ul class="mt-3 space-y-1.5 text-xs text-slate-200">
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Up to 4 subjects and 2 exams.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Weekly planner & basic reminders.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> 200 note entries per semester.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Sync with one calendar.</li>
+                </ul>
+              </div>
+              <button class="mt-5 inline-flex items-center justify-center rounded-full border border-slate-700/80 bg-slate-950 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-sky-400/80 hover:bg-slate-900 sm:px-5 sm:text-sm">Start with Free</button>
+            </div>
+
+            <div class="relative">
+              <div class="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-brand-500/25 via-sky-400/20 to-fuchsia-500/25 opacity-80 blur-2xl" aria-hidden="true"></div>
+              <div class="relative flex h-full flex-col justify-between rounded-3xl border border-sky-400/70 bg-slate-950/95 p-5 shadow-soft sm:p-6 lg:p-7">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-semibold text-slate-50">StudyArc Pro</h3>
+                  <span class="rounded-full bg-sky-500/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-200 ring-1 ring-sky-400/60">Most popular</span>
+                </div>
+                <p class="mt-2 text-xs leading-relaxed text-slate-300">For students who want their whole academic life in one calm place — especially during exam seasons.</p>
+                <p class="mt-4 flex items-baseline gap-1 text-3xl font-semibold text-slate-50 sm:text-4xl">
+                  $4.90
+                  <span class="text-xs font-medium text-slate-400">per month · billed monthly</span>
+                </p>
+
+                <ul class="mt-4 space-y-1.5 text-xs text-slate-100">
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Unlimited subjects, exams and projects.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Adaptive reminders that reschedule around your real life.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Advanced notes with tags, links and attachments.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Two-way calendar sync and quiet hours.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Weekly focus and workload insights.</li>
+                  <li class="flex items-start gap-1.5"><span class="mt-0.5 text-sky-300">•</span> Priority support within 24 hours.</li>
+                </ul>
+
+                <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <button class="inline-flex flex-1 items-center justify-center rounded-full bg-gradient-to-r from-brand-500 via-brand-400 to-sky-400 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:brightness-110 sm:text-sm">Upgrade to Pro</button>
+                  <p class="text-[11px] text-slate-400">Cancel anytime. 30-day refund if it doesn’t click with your brain.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" class="py-12 sm:py-16 lg:py-20">
+          <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16">
+            <div class="space-y-3">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-300">Questions</p>
+              <h2 class="text-xl font-semibold tracking-tight text-slate-50 sm:text-2xl">Made for students who already tried other planners.</h2>
+              <p class="text-sm leading-relaxed text-slate-300">
+                StudyArc grew out of messy spreadsheets and missed reminders. If you live between classes, part-time work and late-night study sessions, it’s for you.
+              </p>
+              <div class="mt-4 flex items-center gap-2 rounded-2xl border border-slate-800/80 bg-slate-950/80 px-3 py-3 text-[11px] text-slate-300">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-sky-500/15 text-sky-300 ring-1 ring-sky-400/50">?</span>
+                <div>
+                  <p class="font-medium text-slate-100">Need something specific for your school?</p>
+                  <p class="text-[11px] text-slate-400">Email us your timetable and we’ll help you set up a template.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3 rounded-3xl border border-slate-800/80 bg-slate-950/80 p-4 sm:p-5">
+              <details class="group border-b border-slate-800/80 pb-3">
+                <summary class="flex cursor-pointer list-none items-center justify-between py-1 text-sm font-medium text-slate-100">
+                  <span>Will StudyArc work if my timetable changes every week?</span>
+                  <span class="ml-3 text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-1.5 text-xs leading-relaxed text-slate-300">Yes. You can mark classes or shifts as "flexible" and StudyArc will keep your core study blocks anchored while letting you shuffle the rest with one drag. Adaptive reminders follow your changes instead of creating duplicates.</p>
+              </details>
+
+              <details class="group border-b border-slate-800/80 pb-3">
+                <summary class="flex cursor-pointer list-none items-center justify-between py-1 text-sm font-medium text-slate-100">
+                  <span>Can I use it alongside Notion or paper notes?</span>
+                  <span class="ml-3 text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-1.5 text-xs leading-relaxed text-slate-300">Absolutely. Many students keep long-form notes in Notion or on paper and use StudyArc purely for planning, reminders and short contextual notes that link back to those systems.</p>
+              </details>
+
+              <details class="group border-b border-slate-800/80 pb-3">
+                <summary class="flex cursor-pointer list-none items-center justify-between py-1 text-sm font-medium text-slate-100">
+                  <span>Does it work offline?</span>
+                  <span class="ml-3 text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-1.5 text-xs leading-relaxed text-slate-300">On desktop browsers, your current week and notes are available offline. Changes sync once you’re back online, so you can plan on the train or in low-connectivity libraries.</p>
+              </details>
+
+              <details class="group">
+                <summary class="flex cursor-pointer list-none items-center justify-between py-1 text-sm font-medium text-slate-100">
+                  <span>Is there a team or class version?</span>
+                  <span class="ml-3 text-slate-500 group-open:rotate-90 transition-transform">›</span>
+                </summary>
+                <p class="mt-1.5 text-xs leading-relaxed text-slate-300">We’re testing shared templates and class packs with a small group of universities. If you’re a tutor or coordinator, reach out and we’ll help you onboard your group.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-slate-800/80 py-6 sm:py-8">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <span class="text-slate-500">©</span>
+            <span>StudyArc</span>
+            <span class="hidden text-slate-700 sm:inline">·</span>
+            <span class="text-xs text-slate-500">Designed for students who prefer quiet tools.</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 text-[11px] text-slate-400">
+            <a href="#" class="hover:text-slate-200">Privacy</a>
+            <a href="#" class="hover:text-slate-200">Terms</a>
+            <a href="#" class="hover:text-slate-200">Contact</a>
+            <span class="hidden h-1 w-1 rounded-full bg-slate-700 sm:inline"></span>
+            <span class="flex items-center gap-1 text-[11px] text-emerald-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Status: All systems normal
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
